@@ -181,9 +181,6 @@ namespace ContainerShipApp
                 g.FillRectangle(brushAdditional, _startPosX + 242, _startPosY + 80, 30, 30);
                 g.DrawRectangle(penMain, _startPosX + 242, _startPosY + 80, 30, 30);
 
-
-
-
                 // Расширяемая опора для троса
                 PointF[] upperPartOfCraneOutline =
                 {
