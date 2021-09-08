@@ -12,9 +12,9 @@ namespace ContainerShipApp
 
         private int _pictureHeight;
 
-        private readonly int containerShipWidth = 240;
+        private readonly int containerShipWidth = 250;
 
-        private readonly int containerShipHeight = 195;
+        private readonly int containerShipHeight = 215;
 
         public int MaxSpeed { get; private set; }
 
@@ -52,25 +52,25 @@ namespace ContainerShipApp
             switch (direction)
             {
                 case Direction.Right:
-                    if (_startPosX + 55 + step < _pictureWidth - containerShipWidth)
+                    if (_startPosX + step < _pictureWidth - containerShipWidth)
                     {
                         _startPosX += step;
                     }
                     break;
                 case Direction.Left:
-                    if (_startPosX + 55 - step > 0)
+                    if (_startPosX - step > 0)
                     {
                         _startPosX -= step;
                     }
                     break;
                 case Direction.Up:
-                    if (_startPosY + 70 - step > 0)
+                    if (_startPosY - step > 0)
                     {
                         _startPosY -= step;
                     }
                     break;
                 case Direction.Down:
-                    if (_startPosY + 70 + step < _pictureHeight - containerShipHeight)
+                    if (_startPosY + step < _pictureHeight - containerShipHeight)
                     {
                         _startPosY += step;
                     }
@@ -89,118 +89,118 @@ namespace ContainerShipApp
             // Надстройка 
             PointF[] superstructureOutline =
              {
-                 new PointF(_startPosX + 75, _startPosY + 210),
-                 new PointF(_startPosX + 75, _startPosY + 150),
-                 new PointF(_startPosX + 65, _startPosY + 150),
-                 new PointF(_startPosX + 65, _startPosY + 125),
-                 new PointF(_startPosX + 120, _startPosY + 125),
-                 new PointF(_startPosX + 120, _startPosY + 210),
-                 new PointF(_startPosX + 75, _startPosY + 210)
+                 new PointF(_startPosX + 25, _startPosY + 160),
+                 new PointF(_startPosX + 25, _startPosY + 100),
+                 new PointF(_startPosX + 15, _startPosY + 100),
+                 new PointF(_startPosX + 15, _startPosY + 75),
+                 new PointF(_startPosX + 70, _startPosY + 75),
+                 new PointF(_startPosX + 70, _startPosY + 160),
+                 new PointF(_startPosX + 25, _startPosY + 160)
              };
             g.FillPolygon(brushWhite, superstructureOutline);
             g.DrawLines(penMain, superstructureOutline);
 
             // Окна в надстройке 
-            g.FillRectangle(brushMain, _startPosX + 110, _startPosY + 133, 10, 10);
-            g.FillRectangle(brushMain, _startPosX + 95, _startPosY + 133, 10, 10);
-            g.FillRectangle(brushMain, _startPosX + 80, _startPosY + 133, 10, 10);
-            g.FillRectangle(brushMain, _startPosX + 100, _startPosY + 153, 6, 6);
-            g.FillRectangle(brushMain, _startPosX + 100, _startPosY + 168, 6, 6);
-            g.FillRectangle(brushMain, _startPosX + 100, _startPosY + 183, 6, 6);
+            g.FillRectangle(brushMain, _startPosX + 60, _startPosY + 83, 10, 10);
+            g.FillRectangle(brushMain, _startPosX + 45, _startPosY + 83, 10, 10);
+            g.FillRectangle(brushMain, _startPosX + 30, _startPosY + 83, 10, 10);
+            g.FillRectangle(brushMain, _startPosX + 50, _startPosY + 103, 6, 6);
+            g.FillRectangle(brushMain, _startPosX + 50, _startPosY + 118, 6, 6);
+            g.FillRectangle(brushMain, _startPosX + 50, _startPosY + 133, 6, 6);
 
             // Нижняя часть трубы 
             PointF[] lowerPipeOutline =
              {
-                 new PointF(_startPosX + 90, _startPosY + 123),
-                 new PointF(_startPosX + 97, _startPosY + 115),
-                 new PointF(_startPosX + 115, _startPosY + 115),
-                 new PointF(_startPosX + 115, _startPosY + 123),
-                 new PointF(_startPosX + 90, _startPosY + 123)
+                 new PointF(_startPosX + 40, _startPosY + 73),
+                 new PointF(_startPosX + 47, _startPosY + 65),
+                 new PointF(_startPosX + 65, _startPosY + 65),
+                 new PointF(_startPosX + 65, _startPosY + 73),
+                 new PointF(_startPosX + 40, _startPosY + 73)
              };
             g.FillPolygon(brushOrange, lowerPipeOutline);
 
             // Верхняя часть трубы 
             PointF[] upperPipeOutline =
              {
-                 new PointF(_startPosX + 97, _startPosY + 115),
-                 new PointF(_startPosX + 103, _startPosY + 107),
-                 new PointF(_startPosX + 115, _startPosY + 107),
-                 new PointF(_startPosX + 115, _startPosY + 115)
+                 new PointF(_startPosX + 47, _startPosY + 65),
+                 new PointF(_startPosX + 53, _startPosY + 57),
+                 new PointF(_startPosX + 65, _startPosY + 57),
+                 new PointF(_startPosX + 65, _startPosY + 65)
              };
             g.FillPolygon(brushMain, upperPipeOutline);
 
             // Дно 
             PointF[] bottomOutline =
              {
-                 new PointF(_startPosX + 270, _startPosY + 240),
-                 new PointF(_startPosX + 280, _startPosY + 245),
-                 new PointF(_startPosX + 280, _startPosY + 260),
-                 new PointF(_startPosX + 80, _startPosY + 260),
-                 new PointF(_startPosX + 70, _startPosY + 240),
-                 new PointF(_startPosX + 270, _startPosY + 240)
+                 new PointF(_startPosX + 220, _startPosY + 190),
+                 new PointF(_startPosX + 230, _startPosY + 195),
+                 new PointF(_startPosX + 230, _startPosY + 210),
+                 new PointF(_startPosX + 30, _startPosY + 210),
+                 new PointF(_startPosX + 20, _startPosY + 190),
+                 new PointF(_startPosX + 220, _startPosY + 190)
              };
             g.FillPolygon(brushOrange, bottomOutline);
 
             // Корпус 
             PointF[] bodyOutline =
              {
-                 new PointF(_startPosX + 270, _startPosY + 240),
-                 new PointF(_startPosX + 70, _startPosY + 240),
-                 new PointF(_startPosX + 60, _startPosY + 220),
-                 new PointF(_startPosX + 60, _startPosY + 190),
-                 new PointF(_startPosX + 90, _startPosY + 190),
-                 new PointF(_startPosX + 100, _startPosY + 200),
-                 new PointF(_startPosX + 290, _startPosY + 200),
-                 new PointF(_startPosX + 270, _startPosY + 240)
+                 new PointF(_startPosX + 220, _startPosY + 190),
+                 new PointF(_startPosX + 20, _startPosY + 190),
+                 new PointF(_startPosX + 10, _startPosY + 170),
+                 new PointF(_startPosX + 10, _startPosY + 140),
+                 new PointF(_startPosX + 40, _startPosY + 140),
+                 new PointF(_startPosX + 50, _startPosY + 150),
+                 new PointF(_startPosX + 240, _startPosY + 150),
+                 new PointF(_startPosX + 220, _startPosY + 190)
              };
             g.FillPolygon(brushMain, bodyOutline);
 
             // Окна в корпусе
-            g.FillRectangle(brushWhite, _startPosX + 260, _startPosY + 210, 8, 8);
-            g.FillRectangle(brushWhite, _startPosX + 245, _startPosY + 210, 8, 8);
+            g.FillRectangle(brushWhite, _startPosX + 210, _startPosY + 160, 8, 8);
+            g.FillRectangle(brushWhite, _startPosX + 195, _startPosY + 160, 8, 8);
 
             if (Containers) // Контейнеры
             {
-                g.DrawRectangle(penMain, _startPosX + 133, _startPosY + 168, 50, 30);
-                g.FillRectangle(brushAdditional, _startPosX + 133, _startPosY + 168, 50, 30);
-                g.DrawRectangle(penMain, _startPosX + 185, _startPosY + 168, 50, 30);
-                g.FillRectangle(brushAdditional, _startPosX + 185, _startPosY + 168, 50, 30);
-                g.DrawRectangle(penMain, _startPosX + 133, _startPosY + 136, 50, 30);
-                g.FillRectangle(brushAdditional, _startPosX + 133, _startPosY + 136, 50, 30);
-                g.DrawRectangle(penMain, _startPosX + 185, _startPosY + 136, 50, 30);
-                g.FillRectangle(brushAdditional, _startPosX + 185, _startPosY + 136, 50, 30);
+                g.DrawRectangle(penMain, _startPosX + 83, _startPosY + 118, 50, 30);
+                g.FillRectangle(brushAdditional, _startPosX + 83, _startPosY + 118, 50, 30);
+                g.DrawRectangle(penMain, _startPosX + 135, _startPosY + 118, 50, 30);
+                g.FillRectangle(brushAdditional, _startPosX + 135, _startPosY + 118, 50, 30);
+                g.DrawRectangle(penMain, _startPosX + 83, _startPosY + 86, 50, 30);
+                g.FillRectangle(brushAdditional, _startPosX + 83, _startPosY + 86, 50, 30);
+                g.DrawRectangle(penMain, _startPosX + 135, _startPosY + 86, 50, 30);
+                g.FillRectangle(brushAdditional, _startPosX + 135, _startPosY + 86, 50, 30);
             }
 
             if (Crane) // Кран
             {
                 // Столб
-                g.FillRectangle(brushAdditional, _startPosX + 250, _startPosY + 102, 15, 100);
-                g.DrawRectangle(penMain, _startPosX + 250, _startPosY + 102, 15, 100);
+                g.FillRectangle(brushAdditional, _startPosX + 200, _startPosY + 52, 15, 100);
+                g.DrawRectangle(penMain, _startPosX + 200, _startPosY + 52, 15, 100);
 
                 // Блок
-                g.FillRectangle(brushAdditional, _startPosX + 242, _startPosY + 80, 30, 30);
-                g.DrawRectangle(penMain, _startPosX + 242, _startPosY + 80, 30, 30);
+                g.FillRectangle(brushAdditional, _startPosX + 192, _startPosY + 30, 30, 30);
+                g.DrawRectangle(penMain, _startPosX + 192, _startPosY + 30, 30, 30);
 
                 // Расширяемая опора для троса
                 PointF[] upperPartOfCraneOutline =
                 {
-                    new PointF(_startPosX + 242, _startPosY + 85),
-                    new PointF(_startPosX + 202, _startPosY + 75),
-                    new PointF(_startPosX + 202, _startPosY + 85),
-                    new PointF(_startPosX + 242, _startPosY + 100),
-                    new PointF(_startPosX + 242, _startPosY + 85),
+                    new PointF(_startPosX + 192, _startPosY + 35),
+                    new PointF(_startPosX + 152, _startPosY + 25),
+                    new PointF(_startPosX + 152, _startPosY + 35),
+                    new PointF(_startPosX + 192, _startPosY + 50),
+                    new PointF(_startPosX + 192, _startPosY + 35),
                 };
                 g.FillPolygon(brushAdditional, upperPartOfCraneOutline);
                 g.DrawLines(penMain, upperPartOfCraneOutline);
 
                 // Трос с крюком
-                g.DrawLine(penMain, _startPosX + 212, _startPosY + 90, _startPosX + 212, _startPosY + 110);
-                g.FillRectangle(brushAdditional, _startPosX + 207, _startPosY + 110, 10, 5);
-                g.DrawRectangle(penMain, _startPosX + 207, _startPosY + 110, 10, 5);
-                g.DrawLine(penMain, _startPosX + 207, _startPosY + 115, _startPosX + 197, _startPosY + 120);
-                g.DrawLine(penMain, _startPosX + 195, _startPosY + 120, _startPosX + 207, _startPosY + 125);
-                g.DrawLine(penMain, _startPosX + 217, _startPosY + 115, _startPosX + 227, _startPosY + 120);
-                g.DrawLine(penMain, _startPosX + 229, _startPosY + 120, _startPosX + 217, _startPosY + 125);
+                g.DrawLine(penMain, _startPosX + 162, _startPosY + 40, _startPosX + 162, _startPosY + 60);
+                g.FillRectangle(brushAdditional, _startPosX + 157, _startPosY + 60, 10, 5);
+                g.DrawRectangle(penMain, _startPosX + 157, _startPosY + 60, 10, 5);
+                g.DrawLine(penMain, _startPosX + 157, _startPosY + 65, _startPosX + 147, _startPosY + 70);
+                g.DrawLine(penMain, _startPosX + 145, _startPosY + 70, _startPosX + 157, _startPosY + 75);
+                g.DrawLine(penMain, _startPosX + 167, _startPosY + 65, _startPosX + 177, _startPosY + 70);
+                g.DrawLine(penMain, _startPosX + 179, _startPosY + 70, _startPosX + 167, _startPosY + 75);
             };
 
             penMain.Dispose();
