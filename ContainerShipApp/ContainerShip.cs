@@ -2,7 +2,7 @@
 
 namespace ContainerShipApp
 {
-    class ContainerShip
+    public class ContainerShip
     {
         private float _startPosX;
 
