@@ -60,7 +60,7 @@
             // buttonUp
             // 
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUp.BackgroundImage = global::ContainerShipApp.Properties.Resources.arrowUp;
+            this.buttonUp.BackgroundImage = global::ShipsApp.Properties.Resources.arrowUp;
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonUp.Location = new System.Drawing.Point(904, 475);
             this.buttonUp.Name = "buttonUp";
@@ -72,7 +72,7 @@
             // buttonDown
             // 
             this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDown.BackgroundImage = global::ContainerShipApp.Properties.Resources.arrowDown;
+            this.buttonDown.BackgroundImage = global::ShipsApp.Properties.Resources.arrowDown;
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonDown.Location = new System.Drawing.Point(904, 511);
             this.buttonDown.Name = "buttonDown";
@@ -84,7 +84,7 @@
             // buttonRight
             // 
             this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRight.BackgroundImage = global::ContainerShipApp.Properties.Resources.arrowRight;
+            this.buttonRight.BackgroundImage = global::ShipsApp.Properties.Resources.arrowRight;
             this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonRight.Location = new System.Drawing.Point(940, 511);
             this.buttonRight.Name = "buttonRight";
@@ -96,7 +96,7 @@
             // buttonLeft
             // 
             this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLeft.BackgroundImage = global::ContainerShipApp.Properties.Resources.arrowLeft;
+            this.buttonLeft.BackgroundImage = global::ShipsApp.Properties.Resources.arrowLeft;
             this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonLeft.Location = new System.Drawing.Point(868, 511);
             this.buttonLeft.Name = "buttonLeft";
