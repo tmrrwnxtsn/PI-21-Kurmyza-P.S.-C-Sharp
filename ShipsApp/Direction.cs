@@ -1,4 +1,4 @@
-﻿namespace ContainerShipApp
+﻿namespace ShipsApp
 {
     public enum Direction
     {

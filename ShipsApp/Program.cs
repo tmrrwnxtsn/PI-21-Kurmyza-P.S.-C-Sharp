@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ContainerShipApp
+namespace ShipsApp
 {
     static class Program
     {
@@ -13,7 +13,7 @@ namespace ContainerShipApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormContainerShip());
+            Application.Run(new FormShip());
         }
     }
 }
