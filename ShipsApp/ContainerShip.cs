@@ -71,7 +71,7 @@ namespace ShipsApp
                 g.DrawLine(penMain, _startPosX + 145, _startPosY + 70, _startPosX + 157, _startPosY + 75);
                 g.DrawLine(penMain, _startPosX + 167, _startPosY + 65, _startPosX + 177, _startPosY + 70);
                 g.DrawLine(penMain, _startPosX + 179, _startPosY + 70, _startPosX + 167, _startPosY + 75);
-            };
+            }
 
             penMain.Dispose();
             brushMain.Dispose();
