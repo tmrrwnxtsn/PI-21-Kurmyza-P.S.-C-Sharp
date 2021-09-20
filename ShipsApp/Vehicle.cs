@@ -4,13 +4,13 @@ namespace ShipsApp
 {
     public abstract class Vehicle : ITransport
     {
-        protected float _startPosX;
+        protected float StartPosX;
 
-        protected float _startPosY;
+        protected float StartPosY;
 
-        protected int _pictureWidth;
+        protected int PictureWidth;
 
-        protected int _pictureHeight;
+        protected int PictureHeight;
 
         public int MaxSpeed { get; protected set; }
 
@@ -20,10 +20,10 @@ namespace ShipsApp
 
         public void SetPosition(int x, int y, int width, int height)
         {
-            _startPosX = x;
-            _startPosY = y;
-            _pictureWidth = width;
-            _pictureHeight = height;
+            StartPosX = x;
+            StartPosY = y;
+            PictureWidth = width;
+            PictureHeight = height;
         }
 
         public abstract void DrawTransport(Graphics g);
