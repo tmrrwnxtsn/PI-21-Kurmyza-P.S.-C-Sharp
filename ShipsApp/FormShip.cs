@@ -13,28 +13,18 @@ namespace ShipsApp
             InitializeComponent();
         }
 
+        public void SetShip(ITransport ship)
+        {
+            this.ship = ship;
+            Draw();
+        }
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxShip.Width, pictureBoxShip.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            ship.DrawTransport(gr);
+            ship?.DrawTransport(gr);
             pictureBoxShip.Image = bmp;
-        }
-
-        private void buttonCreateShip_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            ship = new Ship(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black);
-            ship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxShip.Width, pictureBoxShip.Height);
-            Draw();
-        }
-
-        private void buttonCreateContainerShip_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            ship = new ContainerShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Black, Color.Red, true, true);
-            ship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxShip.Width, pictureBoxShip.Height);
-            Draw();
         }
 
         private void buttonMove_Click(object sender, EventArgs e)

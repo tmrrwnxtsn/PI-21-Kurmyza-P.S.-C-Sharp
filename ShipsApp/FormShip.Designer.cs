@@ -28,12 +28,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormShip));
             this.pictureBoxShip = new System.Windows.Forms.PictureBox();
-            this.buttonCreateShip = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
-            this.buttonCreateContainerShip = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,17 +43,6 @@
             this.pictureBoxShip.Size = new System.Drawing.Size(982, 553);
             this.pictureBoxShip.TabIndex = 0;
             this.pictureBoxShip.TabStop = false;
-            // 
-            // buttonCreateShip
-            // 
-            this.buttonCreateShip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCreateShip.Location = new System.Drawing.Point(12, 12);
-            this.buttonCreateShip.Name = "buttonCreateShip";
-            this.buttonCreateShip.Size = new System.Drawing.Size(156, 32);
-            this.buttonCreateShip.TabIndex = 1;
-            this.buttonCreateShip.Text = "Создать корабль";
-            this.buttonCreateShip.UseVisualStyleBackColor = true;
-            this.buttonCreateShip.Click += new System.EventHandler(this.buttonCreateShip_Click);
             // 
             // buttonUp
             // 
@@ -105,28 +92,15 @@
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // buttonCreateContainerShip
-            // 
-            this.buttonCreateContainerShip.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCreateContainerShip.Location = new System.Drawing.Point(174, 12);
-            this.buttonCreateContainerShip.Name = "buttonCreateContainerShip";
-            this.buttonCreateContainerShip.Size = new System.Drawing.Size(210, 32);
-            this.buttonCreateContainerShip.TabIndex = 6;
-            this.buttonCreateContainerShip.Text = "Создать контейнеровоз";
-            this.buttonCreateContainerShip.UseVisualStyleBackColor = true;
-            this.buttonCreateContainerShip.Click += new System.EventHandler(this.buttonCreateContainerShip_Click);
-            // 
             // FormShip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
-            this.Controls.Add(this.buttonCreateContainerShip);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonCreateShip);
             this.Controls.Add(this.pictureBoxShip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormShip";
@@ -139,8 +113,6 @@
 
         private System.Windows.Forms.PictureBox pictureBoxShip;
 
-        private System.Windows.Forms.Button buttonCreateShip;
-
         private System.Windows.Forms.Button buttonUp;
 
         private System.Windows.Forms.Button buttonDown;
@@ -148,7 +120,5 @@
         private System.Windows.Forms.Button buttonRight;
 
         private System.Windows.Forms.Button buttonLeft;
-
-        private System.Windows.Forms.Button buttonCreateContainerShip;
     }
 }
