@@ -23,7 +23,6 @@ namespace ShipsApp
             _pictureHeight = picHeight;
         }
 
-
         public static int operator +(Parking<T> p, T car)
         {
             for (int i = 0; i < p._places.Length; i++)
@@ -52,6 +51,7 @@ namespace ShipsApp
             }
             return null;
         }
+
         private bool IsPlaceFree(int index)
         {
             return _places[index] == null;
