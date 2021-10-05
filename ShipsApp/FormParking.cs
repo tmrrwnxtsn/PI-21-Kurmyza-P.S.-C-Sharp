@@ -35,7 +35,7 @@ namespace ShipsApp
                 }
                 else
                 {
-                    MessageBox.Show("Парковка переполнена");
+                    MessageBox.Show("Парковка переполнена!");
                 }
             }
         }
@@ -45,18 +45,17 @@ namespace ShipsApp
             ColorDialog dialog = new ColorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialogAdditional = new ColorDialog();
+                if (dialogAdditional.ShowDialog() == DialogResult.OK)
                 {
-                    var ship = new ContainerShip(100, 1000, dialog.Color, dialogDop.Color,
-                   true, true);
+                    var ship = new ContainerShip(100, 1000, dialog.Color, dialogAdditional.Color, true, true);
                     if (parking + ship != -1)
                     {
                         Draw();
                     }
                     else
                     {
-                        MessageBox.Show("Парковка переполнена");
+                        MessageBox.Show("Парковка переполнена!");
                     }
                 }
             }
@@ -64,16 +63,25 @@ namespace ShipsApp
 
         private void buttonGetShip_Click(object sender, EventArgs e)
         {
-            if (maskedTextBoxPlace.Text != "")
+            bool success = int.TryParse(maskedTextBoxPlace.Text, out int index);
+            if (success)
             {
-                var ship = parking - Convert.ToInt32(maskedTextBoxPlace.Text);
+                var ship = parking - index;
                 if (ship != null)
                 {
                     FormShip form = new FormShip();
                     form.SetShip(ship);
                     form.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("Некорректное значение парковочного места!");
+                }
                 Draw();
+            }
+            else
+            {
+                MessageBox.Show("Некорректное значение парковочного места!");
             }
         }
     }

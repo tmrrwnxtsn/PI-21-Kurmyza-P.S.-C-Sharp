@@ -10,9 +10,9 @@ namespace ShipsApp
 
         private readonly int _pictureHeight;
 
-        private readonly int _placeSizeWidth = 210;
+        private readonly int _placeSizeWidth = 240;
 
-        private readonly int _placeSizeHeight = 80;
+        private readonly int _placeSizeHeight = 190;
 
         public Parking(int picWidth, int picHeight)
         {
@@ -31,8 +31,7 @@ namespace ShipsApp
                 if (p.IsPlaceFree(i))
                 {
                     p._places[i] = car;
-                    p._places[i].SetPosition(5 + i / 5 * p._placeSizeWidth + 5,
-                    i % 5 * p._placeSizeHeight + 15, p._pictureWidth, p._pictureHeight);
+                    p._places[i].SetPosition(15 + i % 4 * p._placeSizeWidth, i / 4 * p._placeSizeHeight, p._pictureWidth, p._pictureHeight);
                     return i;
                 }
             }
@@ -41,7 +40,7 @@ namespace ShipsApp
 
         public static T operator -(Parking<T> p, int index)
         {
-            if (index < 0 || index > p._places.Length)
+            if (index < 0 || index >= p._places.Length)
             {
                 return null;
             }
@@ -53,7 +52,6 @@ namespace ShipsApp
             }
             return null;
         }
-
         private bool IsPlaceFree(int index)
         {
             return _places[index] == null;
@@ -62,6 +60,7 @@ namespace ShipsApp
         public void Draw(Graphics g)
         {
             DrawMarking(g);
+
             for (int i = 0; i < _places.Length; i++)
             {
                 _places[i]?.DrawTransport(g);

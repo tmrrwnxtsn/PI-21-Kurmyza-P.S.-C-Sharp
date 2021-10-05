@@ -29,6 +29,7 @@ namespace ShipsApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParking));
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
             this.buttonParkShip = new System.Windows.Forms.Button();
             this.buttonParkContainerShip = new System.Windows.Forms.Button();
@@ -44,13 +45,13 @@ namespace ShipsApp
             // 
             this.pictureBoxParking.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(1178, 595);
+            this.pictureBoxParking.Size = new System.Drawing.Size(1331, 713);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
             // 
             // buttonParkShip
             // 
-            this.buttonParkShip.Location = new System.Drawing.Point(1196, 12);
+            this.buttonParkShip.Location = new System.Drawing.Point(1349, 12);
             this.buttonParkShip.Name = "buttonParkShip";
             this.buttonParkShip.Size = new System.Drawing.Size(130, 47);
             this.buttonParkShip.TabIndex = 1;
@@ -60,7 +61,7 @@ namespace ShipsApp
             // 
             // buttonParkContainerShip
             // 
-            this.buttonParkContainerShip.Location = new System.Drawing.Point(1196, 65);
+            this.buttonParkContainerShip.Location = new System.Drawing.Point(1349, 65);
             this.buttonParkContainerShip.Name = "buttonParkContainerShip";
             this.buttonParkContainerShip.Size = new System.Drawing.Size(130, 63);
             this.buttonParkContainerShip.TabIndex = 2;
@@ -73,7 +74,7 @@ namespace ShipsApp
             this.groupBoxGetShip.Controls.Add(this.buttonGetShip);
             this.groupBoxGetShip.Controls.Add(this.maskedTextBoxPlace);
             this.groupBoxGetShip.Controls.Add(this.labelPlace);
-            this.groupBoxGetShip.Location = new System.Drawing.Point(1196, 134);
+            this.groupBoxGetShip.Location = new System.Drawing.Point(1349, 134);
             this.groupBoxGetShip.Name = "groupBoxGetShip";
             this.groupBoxGetShip.Size = new System.Drawing.Size(130, 110);
             this.groupBoxGetShip.TabIndex = 3;
@@ -110,13 +111,14 @@ namespace ShipsApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1339, 613);
+            this.ClientSize = new System.Drawing.Size(1491, 731);
             this.Controls.Add(this.groupBoxGetShip);
             this.Controls.Add(this.buttonParkContainerShip);
             this.Controls.Add(this.buttonParkShip);
             this.Controls.Add(this.pictureBoxParking);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormParking";
-            this.Text = "Парковка";
+            this.Text = "Парковка кораблей";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.groupBoxGetShip.ResumeLayout(false);
             this.groupBoxGetShip.PerformLayout();

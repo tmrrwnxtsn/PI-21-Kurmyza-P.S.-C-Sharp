@@ -40,7 +40,7 @@
             this.pictureBoxShip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxShip.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxShip.Name = "pictureBoxShip";
-            this.pictureBoxShip.Size = new System.Drawing.Size(982, 553);
+            this.pictureBoxShip.Size = new System.Drawing.Size(1491, 731);
             this.pictureBoxShip.TabIndex = 0;
             this.pictureBoxShip.TabStop = false;
             // 
@@ -49,7 +49,7 @@
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonUp.BackgroundImage = global::ShipsApp.Properties.Resources.arrowUp;
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUp.Location = new System.Drawing.Point(904, 475);
+            this.buttonUp.Location = new System.Drawing.Point(1413, 653);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(30, 30);
             this.buttonUp.TabIndex = 2;
@@ -61,7 +61,7 @@
             this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDown.BackgroundImage = global::ShipsApp.Properties.Resources.arrowDown;
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDown.Location = new System.Drawing.Point(904, 511);
+            this.buttonDown.Location = new System.Drawing.Point(1413, 689);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(30, 30);
             this.buttonDown.TabIndex = 3;
@@ -73,7 +73,7 @@
             this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRight.BackgroundImage = global::ShipsApp.Properties.Resources.arrowRight;
             this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonRight.Location = new System.Drawing.Point(940, 511);
+            this.buttonRight.Location = new System.Drawing.Point(1449, 689);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(30, 30);
             this.buttonRight.TabIndex = 4;
@@ -85,7 +85,7 @@
             this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLeft.BackgroundImage = global::ShipsApp.Properties.Resources.arrowLeft;
             this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonLeft.Location = new System.Drawing.Point(868, 511);
+            this.buttonLeft.Location = new System.Drawing.Point(1377, 689);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(30, 30);
             this.buttonLeft.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 553);
+            this.ClientSize = new System.Drawing.Size(1491, 731);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonDown);
@@ -105,7 +105,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormShip";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Корабль-контейнеровоз";
+            this.Text = "Корабль";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShip)).EndInit();
             this.ResumeLayout(false);
 

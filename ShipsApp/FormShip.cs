@@ -33,16 +33,16 @@ namespace ShipsApp
             switch (buttonName)
             {
                 case "buttonUp":
-                    ship.MoveTransport(Direction.Up);
+                    ship?.MoveTransport(Direction.Up);
                     break;
                 case "buttonDown":
-                    ship.MoveTransport(Direction.Down);
+                    ship?.MoveTransport(Direction.Down);
                     break;
                 case "buttonLeft":
-                    ship.MoveTransport(Direction.Left);
+                    ship?.MoveTransport(Direction.Left);
                     break;
                 case "buttonRight":
-                    ship.MoveTransport(Direction.Right);
+                    ship?.MoveTransport(Direction.Right);
                     break;
             }
             Draw();
