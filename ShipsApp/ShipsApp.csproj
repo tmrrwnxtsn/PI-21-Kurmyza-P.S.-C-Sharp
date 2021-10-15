@@ -46,23 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContainerShip.cs" />
-    <Compile Include="Direction.cs" />
-    <Compile Include="FormParking.cs">
+    <Compile Include="Transport\ContainerShip.cs" />
+    <Compile Include="Transport\Direction.cs" />
+    <Compile Include="Forms\FormParking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormParking.Designer.cs">
+    <Compile Include="Forms\FormParking.Designer.cs">
       <DependentUpon>FormParking.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormShip.cs">
+    <Compile Include="Forms\FormShip.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormShip.Designer.cs">
+    <Compile Include="Forms\FormShip.Designer.cs">
       <DependentUpon>FormShip.cs</DependentUpon>
     </Compile>
-    <Compile Include="ITransport.cs" />
-    <Compile Include="Parking.cs" />
-    <Compile Include="ParkingCollection.cs" />
+    <Compile Include="Transport\ITransport.cs" />
+    <Compile Include="Parkings\Parking.cs" />
+    <Compile Include="Parkings\ParkingCollection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -70,12 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Ship.cs" />
-    <Compile Include="Vehicle.cs" />
-    <EmbeddedResource Include="FormParking.resx">
+    <Compile Include="Transport\Ship.cs" />
+    <Compile Include="Transport\Vehicle.cs" />
+    <EmbeddedResource Include="Forms\FormParking.resx">
       <DependentUpon>FormParking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormShip.resx">
+    <EmbeddedResource Include="Forms\FormShip.resx">
       <DependentUpon>FormShip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
