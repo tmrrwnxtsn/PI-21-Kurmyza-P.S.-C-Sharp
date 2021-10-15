@@ -122,7 +122,7 @@ namespace ShipsApp
         {
             if (string.IsNullOrEmpty(textBoxInputParkingName.Text))
             {
-                MessageBox.Show("Введите название парковки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введите название парковки!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _parkingCollection.AddParking(textBoxInputParkingName.Text);
