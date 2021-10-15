@@ -36,7 +36,6 @@ namespace ShipsApp
             }
         }
 
-
         public Parking<Vehicle> this[string name]
         {
             get

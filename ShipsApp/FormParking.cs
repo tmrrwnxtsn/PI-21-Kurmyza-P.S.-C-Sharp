@@ -37,13 +37,17 @@ namespace ShipsApp
 
         private void Draw()
         {
+            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
+            Graphics gr = Graphics.FromImage(bmp);
             if (listBoxParkings.SelectedIndex > -1)
             {
-                Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
-                Graphics gr = Graphics.FromImage(bmp);
                 _parkingCollection[listBoxParkings.SelectedItem.ToString()].Draw(gr);
-                pictureBoxParking.Image = bmp;
             }
+            else
+            {
+                gr.FillRectangle(new SolidBrush(Color.Transparent), 0, 0, pictureBoxParking.Width, pictureBoxParking.Height);
+            }
+            pictureBoxParking.Image = bmp;
         }
 
         private void buttonParkShip_Click(object sender, EventArgs e)
@@ -135,6 +139,7 @@ namespace ShipsApp
                     ReloadLevels();
                 }
             }
+            Draw();
         }
 
         private void listBoxShowParkings_SelectedIndexChanged(object sender, EventArgs e)
