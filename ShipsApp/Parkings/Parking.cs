@@ -27,14 +27,14 @@ namespace ShipsApp
             _places = new List<T>();
         }
 
-        public static bool operator +(Parking<T> p, T car)
+        public static bool operator +(Parking<T> p, T ship)
         {
             if (p._places.Count == p._maxCount)
             {
                 return false;
             }
             
-            p._places.Add(car);
+            p._places.Add(ship);
             return true;
         }
 
@@ -45,9 +45,9 @@ namespace ShipsApp
                 return null;
             }
 
-            T car = p._places[index];
+            T ship = p._places[index];
             p._places.RemoveAt(index);
-            return car;
+            return ship;
         }
 
         public void Draw(Graphics g)
