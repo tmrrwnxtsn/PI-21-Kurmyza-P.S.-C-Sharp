@@ -1,7 +1,7 @@
 ﻿
 namespace ShipsApp
 {
-    partial class FormParking
+    partial class FormPier
     {
         /// <summary>
         /// Required designer variable.
@@ -29,30 +29,30 @@ namespace ShipsApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParking));
-            this.pictureBoxParking = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPier));
+            this.pictureBoxPier = new System.Windows.Forms.PictureBox();
             this.buttonParkShip = new System.Windows.Forms.Button();
             this.buttonParkContainerShip = new System.Windows.Forms.Button();
             this.groupBoxGetShip = new System.Windows.Forms.GroupBox();
             this.buttonGetShip = new System.Windows.Forms.Button();
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
-            this.labelParkings = new System.Windows.Forms.Label();
-            this.textBoxInputParkingName = new System.Windows.Forms.MaskedTextBox();
-            this.buttonAddParking = new System.Windows.Forms.Button();
-            this.listBoxParkings = new System.Windows.Forms.ListBox();
-            this.buttonRemoveParking = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
+            this.labelPier = new System.Windows.Forms.Label();
+            this.textBoxInputPierName = new System.Windows.Forms.MaskedTextBox();
+            this.buttonAddPier = new System.Windows.Forms.Button();
+            this.listBoxPiers = new System.Windows.Forms.ListBox();
+            this.buttonRemovePier = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPier)).BeginInit();
             this.groupBoxGetShip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBoxParking
+            // pictureBoxPier
             // 
-            this.pictureBoxParking.Location = new System.Drawing.Point(12, 12);
-            this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(1331, 713);
-            this.pictureBoxParking.TabIndex = 0;
-            this.pictureBoxParking.TabStop = false;
+            this.pictureBoxPier.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxPier.Name = "pictureBoxPier";
+            this.pictureBoxPier.Size = new System.Drawing.Size(1331, 713);
+            this.pictureBoxPier.TabIndex = 0;
+            this.pictureBoxPier.TabStop = false;
             // 
             // buttonParkShip
             // 
@@ -112,70 +112,70 @@ namespace ShipsApp
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место:";
             // 
-            // labelParkings
+            // labelPier
             // 
-            this.labelParkings.AutoSize = true;
-            this.labelParkings.Location = new System.Drawing.Point(1379, 12);
-            this.labelParkings.Name = "labelParkings";
-            this.labelParkings.Size = new System.Drawing.Size(75, 17);
-            this.labelParkings.TabIndex = 4;
-            this.labelParkings.Text = "Парковки:";
+            this.labelPier.AutoSize = true;
+            this.labelPier.Location = new System.Drawing.Point(1379, 12);
+            this.labelPier.Name = "labelPier";
+            this.labelPier.Size = new System.Drawing.Size(75, 17);
+            this.labelPier.TabIndex = 4;
+            this.labelPier.Text = "Пристань:";
             // 
-            // textBoxInputParkingName
+            // textBoxInputPierName
             // 
-            this.textBoxInputParkingName.Location = new System.Drawing.Point(1352, 34);
-            this.textBoxInputParkingName.Name = "textBoxInputParkingName";
-            this.textBoxInputParkingName.Size = new System.Drawing.Size(130, 22);
-            this.textBoxInputParkingName.TabIndex = 5;
+            this.textBoxInputPierName.Location = new System.Drawing.Point(1352, 34);
+            this.textBoxInputPierName.Name = "textBoxInputPierName";
+            this.textBoxInputPierName.Size = new System.Drawing.Size(130, 22);
+            this.textBoxInputPierName.TabIndex = 5;
             // 
-            // buttonAddParking
+            // buttonAddPier
             // 
-            this.buttonAddParking.Location = new System.Drawing.Point(1352, 63);
-            this.buttonAddParking.Name = "buttonAddParking";
-            this.buttonAddParking.Size = new System.Drawing.Size(130, 47);
-            this.buttonAddParking.TabIndex = 6;
-            this.buttonAddParking.Text = "Добавить парковку";
-            this.buttonAddParking.UseVisualStyleBackColor = true;
-            this.buttonAddParking.Click += new System.EventHandler(this.buttonAddParking_Click);
+            this.buttonAddPier.Location = new System.Drawing.Point(1352, 63);
+            this.buttonAddPier.Name = "buttonAddPier";
+            this.buttonAddPier.Size = new System.Drawing.Size(130, 49);
+            this.buttonAddPier.TabIndex = 6;
+            this.buttonAddPier.Text = "Добавить пристань";
+            this.buttonAddPier.UseVisualStyleBackColor = true;
+            this.buttonAddPier.Click += new System.EventHandler(this.buttonAddPier_Click);
             // 
-            // listBoxParkings
+            // listBoxPiers
             // 
-            this.listBoxParkings.FormattingEnabled = true;
-            this.listBoxParkings.ItemHeight = 16;
-            this.listBoxParkings.Location = new System.Drawing.Point(1352, 117);
-            this.listBoxParkings.Name = "listBoxParkings";
-            this.listBoxParkings.Size = new System.Drawing.Size(127, 100);
-            this.listBoxParkings.TabIndex = 7;
-            this.listBoxParkings.SelectedIndexChanged += new System.EventHandler(this.listBoxShowParkings_SelectedIndexChanged);
+            this.listBoxPiers.FormattingEnabled = true;
+            this.listBoxPiers.ItemHeight = 16;
+            this.listBoxPiers.Location = new System.Drawing.Point(1352, 118);
+            this.listBoxPiers.Name = "listBoxPiers";
+            this.listBoxPiers.Size = new System.Drawing.Size(127, 100);
+            this.listBoxPiers.TabIndex = 7;
+            this.listBoxPiers.SelectedIndexChanged += new System.EventHandler(this.listBoxShowPiers_SelectedIndexChanged);
             // 
-            // buttonRemoveParking
+            // buttonRemovePier
             // 
-            this.buttonRemoveParking.Location = new System.Drawing.Point(1352, 224);
-            this.buttonRemoveParking.Name = "buttonRemoveParking";
-            this.buttonRemoveParking.Size = new System.Drawing.Size(127, 46);
-            this.buttonRemoveParking.TabIndex = 8;
-            this.buttonRemoveParking.Text = "Удалить парковку";
-            this.buttonRemoveParking.UseVisualStyleBackColor = true;
-            this.buttonRemoveParking.Click += new System.EventHandler(this.buttonRemoveParking_Click);
+            this.buttonRemovePier.Location = new System.Drawing.Point(1352, 224);
+            this.buttonRemovePier.Name = "buttonRemovePier";
+            this.buttonRemovePier.Size = new System.Drawing.Size(127, 46);
+            this.buttonRemovePier.TabIndex = 8;
+            this.buttonRemovePier.Text = "Удалить пристань";
+            this.buttonRemovePier.UseVisualStyleBackColor = true;
+            this.buttonRemovePier.Click += new System.EventHandler(this.buttonRemovePier_Click);
             // 
-            // FormParking
+            // FormPier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1491, 731);
-            this.Controls.Add(this.buttonRemoveParking);
-            this.Controls.Add(this.listBoxParkings);
-            this.Controls.Add(this.buttonAddParking);
-            this.Controls.Add(this.textBoxInputParkingName);
-            this.Controls.Add(this.labelParkings);
+            this.Controls.Add(this.buttonRemovePier);
+            this.Controls.Add(this.listBoxPiers);
+            this.Controls.Add(this.buttonAddPier);
+            this.Controls.Add(this.textBoxInputPierName);
+            this.Controls.Add(this.labelPier);
             this.Controls.Add(this.groupBoxGetShip);
             this.Controls.Add(this.buttonParkContainerShip);
             this.Controls.Add(this.buttonParkShip);
-            this.Controls.Add(this.pictureBoxParking);
+            this.Controls.Add(this.pictureBoxPier);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormParking";
-            this.Text = "Парковка кораблей";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
+            this.Name = "FormPier";
+            this.Text = "Коллекция пристаней";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPier)).EndInit();
             this.groupBoxGetShip.ResumeLayout(false);
             this.groupBoxGetShip.PerformLayout();
             this.ResumeLayout(false);
@@ -185,17 +185,17 @@ namespace ShipsApp
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxParking;
+        private System.Windows.Forms.PictureBox pictureBoxPier;
         private System.Windows.Forms.Button buttonParkShip;
         private System.Windows.Forms.Button buttonParkContainerShip;
         private System.Windows.Forms.GroupBox groupBoxGetShip;
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
         private System.Windows.Forms.Button buttonGetShip;
-        private System.Windows.Forms.Label labelParkings;
-        private System.Windows.Forms.MaskedTextBox textBoxInputParkingName;
-        private System.Windows.Forms.Button buttonAddParking;
-        private System.Windows.Forms.ListBox listBoxParkings;
-        private System.Windows.Forms.Button buttonRemoveParking;
+        private System.Windows.Forms.Label labelPier;
+        private System.Windows.Forms.MaskedTextBox textBoxInputPierName;
+        private System.Windows.Forms.Button buttonAddPier;
+        private System.Windows.Forms.ListBox listBoxPiers;
+        private System.Windows.Forms.Button buttonRemovePier;
     }
 }

@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace ShipsApp
 {
-    public class Parking<T> where T : class, ITransport
+    public class Pier<T> where T : class, ITransport
     {
         private readonly List<T> _places;
 
@@ -17,7 +17,7 @@ namespace ShipsApp
 
         private readonly int _placeSizeHeight = 190;
 
-        public Parking(int picWidth, int picHeight)
+        public Pier(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
@@ -27,7 +27,7 @@ namespace ShipsApp
             _places = new List<T>();
         }
 
-        public static bool operator +(Parking<T> p, T ship)
+        public static bool operator +(Pier<T> p, T ship)
         {
             if (p._places.Count == p._maxCount)
             {
@@ -38,7 +38,7 @@ namespace ShipsApp
             return true;
         }
 
-        public static T operator -(Parking<T> p, int index)
+        public static T operator -(Pier<T> p, int index)
         {
             if (index < 0 || index >= p._maxCount || p._places[index] == null)
             {
