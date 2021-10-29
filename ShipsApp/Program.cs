@@ -3,11 +3,8 @@ using System.Windows.Forms;
 
 namespace ShipsApp
 {
-    static class Program
+    public static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
         [STAThread]
         static void Main()
         {

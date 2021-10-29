@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShipsApp.Forms;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,6 +12,7 @@ namespace ShipsApp
         public FormPier()
         {
             InitializeComponent();
+
             _pierCollection = new PierCollection(pictureBoxPier.Width, pictureBoxPier.Height);
         }
 
@@ -48,50 +50,6 @@ namespace ShipsApp
                 gr.FillRectangle(new SolidBrush(Color.Transparent), 0, 0, pictureBoxPier.Width, pictureBoxPier.Height);
             }
             pictureBoxPier.Image = bmp;
-        }
-
-        private void buttonParkShip_Click(object sender, EventArgs e)
-        {
-            if (listBoxPiers.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var ship = new Ship(100, 1000, dialog.Color);
-                    if (_pierCollection[listBoxPiers.SelectedItem.ToString()] + ship)
-                    {
-                        Draw();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Пристань переполнена!");
-                    }
-                }
-            }
-        }
-
-        private void buttonParkContainerShip_Click(object sender, EventArgs e)
-        {
-            if (listBoxPiers.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogAdditional = new ColorDialog();
-                    if (dialogAdditional.ShowDialog() == DialogResult.OK)
-                    {
-                        var ship = new ContainerShip(100, 1000, dialog.Color, dialogAdditional.Color, true, true);
-                        if (_pierCollection[listBoxPiers.SelectedItem.ToString()] + ship)
-                        {
-                            Draw();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Пристань переполнена!");
-                        }
-                    }
-                }
-            }
         }
 
         private void buttonGetShip_Click(object sender, EventArgs e)
@@ -145,6 +103,32 @@ namespace ShipsApp
         private void listBoxShowPiers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void buttonParkShip_Click(object sender, EventArgs e)
+        {
+            FormShipConfig formShipConfig = new FormShipConfig();
+            formShipConfig.AddEvent(ParkShip);
+            formShipConfig.Show();
+        }
+
+        private void ParkShip(ITransport ship)
+        {
+            if (ship != null && listBoxPiers.SelectedIndex > -1)
+            {
+                if ((_pierCollection[listBoxPiers.SelectedItem.ToString()]) + ship)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Пристань переполнена!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Некуда парковать судно!");
+            }
         }
     }
 }

@@ -12,9 +12,6 @@ namespace ShipsApp
 
         public ContainerShip(int maxSpeed, float weight, Color mainColor, Color additionalColor, bool containers, bool crane) : base(maxSpeed, weight, mainColor, 230, 190)
         {
-            MaxSpeed = maxSpeed;
-            Weight = weight;
-            MainColor = mainColor;
             AdditionalColor = additionalColor;
             Containers = containers;
             Crane = crane;
@@ -77,6 +74,11 @@ namespace ShipsApp
             brushMain.Dispose();
             brushAdditional.Dispose();
             brushWhite.Dispose();
+        }
+
+        public void SetAdditionalColor(Color color)
+        {
+            AdditionalColor = color;
         }
     }
 }

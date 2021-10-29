@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FormShipConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormShipConfig.Designer.cs">
+      <DependentUpon>FormShipConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transport\ContainerShip.cs" />
     <Compile Include="Transport\Direction.cs" />
     <Compile Include="Forms\FormPier.cs">
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormShip.resx">
       <DependentUpon>FormShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormShipConfig.resx">
+      <DependentUpon>FormShipConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

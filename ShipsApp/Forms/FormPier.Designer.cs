@@ -32,7 +32,6 @@ namespace ShipsApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPier));
             this.pictureBoxPier = new System.Windows.Forms.PictureBox();
             this.buttonParkShip = new System.Windows.Forms.Button();
-            this.buttonParkContainerShip = new System.Windows.Forms.Button();
             this.groupBoxGetShip = new System.Windows.Forms.GroupBox();
             this.buttonGetShip = new System.Windows.Forms.Button();
             this.maskedTextBoxPlace = new System.Windows.Forms.MaskedTextBox();
@@ -63,16 +62,6 @@ namespace ShipsApp
             this.buttonParkShip.Text = "Припарковать корабль";
             this.buttonParkShip.UseVisualStyleBackColor = true;
             this.buttonParkShip.Click += new System.EventHandler(this.buttonParkShip_Click);
-            // 
-            // buttonParkContainerShip
-            // 
-            this.buttonParkContainerShip.Location = new System.Drawing.Point(1349, 380);
-            this.buttonParkContainerShip.Name = "buttonParkContainerShip";
-            this.buttonParkContainerShip.Size = new System.Drawing.Size(130, 63);
-            this.buttonParkContainerShip.TabIndex = 2;
-            this.buttonParkContainerShip.Text = "Припарковать контейнеровоз";
-            this.buttonParkContainerShip.UseVisualStyleBackColor = true;
-            this.buttonParkContainerShip.Click += new System.EventHandler(this.buttonParkContainerShip_Click);
             // 
             // groupBoxGetShip
             // 
@@ -169,7 +158,6 @@ namespace ShipsApp
             this.Controls.Add(this.textBoxInputPierName);
             this.Controls.Add(this.labelPier);
             this.Controls.Add(this.groupBoxGetShip);
-            this.Controls.Add(this.buttonParkContainerShip);
             this.Controls.Add(this.buttonParkShip);
             this.Controls.Add(this.pictureBoxPier);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -187,7 +175,6 @@ namespace ShipsApp
 
         private System.Windows.Forms.PictureBox pictureBoxPier;
         private System.Windows.Forms.Button buttonParkShip;
-        private System.Windows.Forms.Button buttonParkContainerShip;
         private System.Windows.Forms.GroupBox groupBoxGetShip;
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
