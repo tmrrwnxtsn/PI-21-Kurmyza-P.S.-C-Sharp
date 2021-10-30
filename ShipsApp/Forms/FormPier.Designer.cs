@@ -55,11 +55,11 @@ namespace ShipsApp
             // 
             // buttonParkShip
             // 
-            this.buttonParkShip.Location = new System.Drawing.Point(1349, 327);
+            this.buttonParkShip.Location = new System.Drawing.Point(1352, 316);
             this.buttonParkShip.Name = "buttonParkShip";
             this.buttonParkShip.Size = new System.Drawing.Size(130, 47);
             this.buttonParkShip.TabIndex = 1;
-            this.buttonParkShip.Text = "Припарковать корабль";
+            this.buttonParkShip.Text = "Припарковать судно";
             this.buttonParkShip.UseVisualStyleBackColor = true;
             this.buttonParkShip.Click += new System.EventHandler(this.buttonParkShip_Click);
             // 
@@ -68,7 +68,7 @@ namespace ShipsApp
             this.groupBoxGetShip.Controls.Add(this.buttonGetShip);
             this.groupBoxGetShip.Controls.Add(this.maskedTextBoxPlace);
             this.groupBoxGetShip.Controls.Add(this.labelPlace);
-            this.groupBoxGetShip.Location = new System.Drawing.Point(1349, 449);
+            this.groupBoxGetShip.Location = new System.Drawing.Point(1349, 369);
             this.groupBoxGetShip.Name = "groupBoxGetShip";
             this.groupBoxGetShip.Size = new System.Drawing.Size(130, 110);
             this.groupBoxGetShip.TabIndex = 3;
