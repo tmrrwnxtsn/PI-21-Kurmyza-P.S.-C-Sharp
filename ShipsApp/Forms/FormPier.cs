@@ -114,20 +114,23 @@ namespace ShipsApp
 
         private void ParkShip(ITransport ship)
         {
-            if (ship != null && listBoxPiers.SelectedIndex > -1)
+            if (listBoxPiers.SelectedIndex == -1)
             {
-                if ((_pierCollection[listBoxPiers.SelectedItem.ToString()]) + ship)
-                {
-                    Draw();
-                }
-                else
-                {
-                    MessageBox.Show("Пристань переполнена!");
-                }
+                MessageBox.Show("Некуда парковать судно!");
+                return;
+            }
+            else if (ship == null)
+            {
+                MessageBox.Show("Нечего парковать на пристань!");
+                return;
+            }
+            if ((_pierCollection[listBoxPiers.SelectedItem.ToString()]) + ship)
+            {
+                Draw();
             }
             else
             {
-                MessageBox.Show("Некуда парковать судно!");
+                MessageBox.Show("Пристань переполнена!");
             }
         }
     }
