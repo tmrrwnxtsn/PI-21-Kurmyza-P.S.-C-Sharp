@@ -14,6 +14,15 @@ namespace ShipsApp.Forms
         {
             InitializeComponent();
 
+            panelRed.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+            panelGreen.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+            panelBlue.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+            panelOrange.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+            panelYellow.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+            panelPink.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+            panelViolet.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+            panelWhite.MouseDown += new MouseEventHandler(panelColor_MouseDown);
+
             buttonCancel.Click += (object sender, EventArgs e) => { Close(); };
         }
 
