@@ -27,7 +27,6 @@ namespace ShipsApp
                 Weight = Convert.ToInt32(strs[1]);
                 MainColor = Color.FromName(strs[2]);
             }
-
         }
 
         protected Ship(int maxSpeed, float weight, Color mainColor, int shipWidth, int shipHeight)
