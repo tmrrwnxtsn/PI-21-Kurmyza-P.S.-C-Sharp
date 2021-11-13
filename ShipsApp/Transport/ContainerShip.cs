@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace ShipsApp
 {
@@ -15,6 +16,20 @@ namespace ShipsApp
             AdditionalColor = additionalColor;
             Containers = containers;
             Crane = crane;
+        }
+
+        public ContainerShip(string info): base(info)
+        {
+            string[] strs = info.Split(Separator);
+            if (strs.Length == 6)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                AdditionalColor = Color.FromName(strs[3]);
+                Containers = Convert.ToBoolean(strs[4]);
+                Crane = Convert.ToBoolean(strs[5]);
+            }
         }
 
         public override void DrawTransport(Graphics g)
@@ -79,6 +94,11 @@ namespace ShipsApp
         public void SetAdditionalColor(Color color)
         {
             AdditionalColor = color;
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}{Separator}{AdditionalColor.Name}{Separator}{Containers}{Separator}{Crane}";
         }
     }
 }

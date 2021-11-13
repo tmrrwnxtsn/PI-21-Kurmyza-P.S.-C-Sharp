@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace ShipsApp
 {
@@ -12,6 +15,8 @@ namespace ShipsApp
         private readonly int _pictureWidth;
 
         private readonly int _pictureHeight;
+
+        private readonly char _separator = ':';
 
         public PierCollection(int pictureWidth, int pictureHeight)
         {
@@ -45,6 +50,92 @@ namespace ShipsApp
                     return _pierStages[name];
                 }
                 return null;
+            }
+        }
+
+        public bool SaveData(string filename)
+        {
+            using (StreamWriter sw = new StreamWriter(filename, false, Encoding.UTF8))
+            {
+                sw.WriteLine("PierCollection");
+                foreach (var level in _pierStages)
+                {
+                    sw.WriteLine($"Pier{_separator}{level.Key}");
+
+                    ITransport ship;
+                    for (int i = 0; (ship = level.Value.GetShip(i)) != null; i++)
+                    {
+                        if (ship != null)
+                        {
+                            if (ship.GetType().Name == "Ship")
+                            {
+                                sw.Write($"Ship{_separator}");
+                            }
+                            if (ship.GetType().Name == "ContainerShip")
+                            {
+                                sw.Write($"ContainerShip{_separator}");
+                            }
+                            sw.WriteLine(ship);
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool LoadData(string filename)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
+                {
+                    string line = sr.ReadLine();
+                    if (line.Contains("PierCollection"))
+                    {
+                        _pierStages.Clear();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                    ITransport ship = null;
+                    string key = string.Empty;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (string.IsNullOrEmpty(line))
+                        {
+                            continue;
+                        }
+
+                        if (line.Contains("Pier"))
+                        {
+                            key = line.Split(_separator)[1];
+                            _pierStages.Add(key, new Pier<ITransport>(_pictureWidth, _pictureHeight));
+                            continue;
+                        }
+
+                        if (line.Split(_separator)[0] == "Ship")
+                        {
+                            ship = new Ship(line.Split(_separator)[1]);
+                        }
+                        else if (line.Split(_separator)[0] == "ContainerShip")
+                        {
+                            ship = new ContainerShip(line.Split(_separator)[1]);
+                        }
+
+                        var result = _pierStages[key] + ship;
+                        if (!result)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

@@ -133,5 +133,41 @@ namespace ShipsApp
                 MessageBox.Show("Пристань переполнена!");
             }
         }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (_pierCollection.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно!", "Результат",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Произошла ошибка при сохранении!", "Результат",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (_pierCollection.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Информация из файла успешно загружена!", "Результат", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    ReloadLevels();
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Произошла ошибка при чтении файла!", "Результат", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

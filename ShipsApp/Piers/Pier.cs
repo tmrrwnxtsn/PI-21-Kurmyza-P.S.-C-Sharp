@@ -40,7 +40,7 @@ namespace ShipsApp
 
         public static T operator -(Pier<T> p, int index)
         {
-            if (index < 0 || index >= p._maxCount || p._places[index] == null)
+            if (index < 0 || index >= p._maxCount)
             {
                 return null;
             }
@@ -73,6 +73,15 @@ namespace ShipsApp
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, (_pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
+        }
+
+        public T GetShip(int index)
+        {
+            if (index < 0 || index >= _places.Count)
+            {
+                return null;
+            }
+            return _places[index];
         }
     }
 }
