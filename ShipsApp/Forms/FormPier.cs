@@ -79,13 +79,13 @@ namespace ShipsApp
                 {
                     MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    _logger.Warn($"Не найдено: {ex.Message}");
+                    _logger.Warn($"Судно не найдено: {ex.Message}");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Неудачная попытка изъятия судна", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    _logger.Warn($"Неизвестная ошибка при сохранении: {ex.Message}");
+                    _logger.Warn($"Не удалось изъять судно с пристани: {ex.Message}");
                 }
             }
             else
@@ -127,7 +127,7 @@ namespace ShipsApp
         {
             Draw();
 
-            _logger.Info($"Осуществлён переход на пристань «{listBoxPiers.SelectedItem}»");
+            _logger.Info($"Выбрана пристань «{listBoxPiers.SelectedItem}»");
         }
 
         private void buttonParkShip_Click(object sender, EventArgs e)
@@ -142,11 +142,13 @@ namespace ShipsApp
             if (listBoxPiers.SelectedIndex == -1)
             {
                 MessageBox.Show("Некуда парковать судно!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _logger.Warn("Невозможно припарковать судно: ни одна пристань не создана");
                 return;
             }
             else if (ship == null)
             {
                 MessageBox.Show("Нечего парковать на пристань!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _logger.Warn("Невозможно припарковать судно: оно не создано");
                 return;
             }
             try
@@ -166,13 +168,13 @@ namespace ShipsApp
             {
                 MessageBox.Show(ex.Message, "Пристань переполнена", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                _logger.Warn($"Переполнение: {ex.Message}");
+                _logger.Warn($"Невозможно добавить судно в переполненную пристань: {ex.Message}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Неудачная попытка припарковать судно", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                _logger.Warn($"Неизвестная ошибка: {ex.Message}");
+                _logger.Warn($"Неизвестная ошибка при попытке припарковать судно: {ex.Message}");
             }
         }
 
@@ -211,7 +213,7 @@ namespace ShipsApp
                     ReloadLevels();
                     Draw();
 
-                    _logger.Info($"Загружено из файла «{openFileDialog.FileName}»");
+                    _logger.Info($"Информация о пристанях загружена из файла «{openFileDialog.FileName}»");
                 }
                 catch (PierOverflowException ex)
                 {
