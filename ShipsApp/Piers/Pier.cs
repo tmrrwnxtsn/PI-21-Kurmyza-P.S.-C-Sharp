@@ -31,7 +31,7 @@ namespace ShipsApp
         {
             if (p._places.Count == p._maxCount)
             {
-                return false;
+                throw new PierOverflowException();
             }
             
             p._places.Add(ship);
@@ -42,7 +42,7 @@ namespace ShipsApp
         {
             if (index < 0 || index >= p._maxCount)
             {
-                return null;
+                throw new ShipNotFoundException(index);
             }
 
             T ship = p._places[index];

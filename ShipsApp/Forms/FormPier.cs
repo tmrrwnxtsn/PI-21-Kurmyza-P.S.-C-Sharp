@@ -1,4 +1,5 @@
-﻿using ShipsApp.Forms;
+﻿using NLog;
+using ShipsApp.Forms;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,11 +10,15 @@ namespace ShipsApp
     {
         private readonly PierCollection _pierCollection;
 
+        private readonly Logger _logger;
+
         public FormPier()
         {
             InitializeComponent();
 
             _pierCollection = new PierCollection(pictureBoxPier.Width, pictureBoxPier.Height);
+
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
         private void ReloadLevels()
@@ -57,22 +62,35 @@ namespace ShipsApp
             bool success = int.TryParse(maskedTextBoxPlace.Text, out int index);
             if (success && listBoxPiers.SelectedIndex > -1)
             {
-                var ship = _pierCollection[listBoxPiers.SelectedItem.ToString()] - index;
-                if (ship != null)
+                try
                 {
-                    FormShip form = new FormShip();
-                    form.SetShip(ship);
-                    form.ShowDialog();
+                    var ship = _pierCollection[listBoxPiers.SelectedItem.ToString()] - index;
+                    if (ship != null)
+                    {
+                        FormShip form = new FormShip();
+                        form.SetShip(ship);
+                        form.ShowDialog();
+                        Draw();
+
+                        _logger.Info($"Судно «{ship}» изъято с места {maskedTextBoxPlace.Text}");
+                    }
                 }
-                else
+                catch (ShipNotFoundException ex)
                 {
-                    MessageBox.Show("Некорректное значение места на пристани!");
+                    MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Не найдено: {ex.Message}");
                 }
-                Draw();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Неизвестная ошибка при сохранении: {ex.Message}");
+                }
             }
             else
             {
-                MessageBox.Show("Некорректное значение места на пристани!");
+                MessageBox.Show("Некорректное значение места на пристани!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -83,8 +101,11 @@ namespace ShipsApp
                 MessageBox.Show("Введите название пристани!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             _pierCollection.AddPier(textBoxInputPierName.Text);
             ReloadLevels();
+
+            _logger.Info($"Пристань «{textBoxInputPierName.Text}» добавлена");
         }
 
         private void buttonRemovePier_Click(object sender, EventArgs e)
@@ -95,14 +116,18 @@ namespace ShipsApp
                 {
                     _pierCollection.DelPier(listBoxPiers.SelectedItem.ToString());
                     ReloadLevels();
+                    Draw();
+
+                    _logger.Info($"Пристань «{listBoxPiers.SelectedItem}» удалена");
                 }
             }
-            Draw();
         }
 
         private void listBoxShowPiers_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+
+            _logger.Info($"Осуществлён переход на пристань «{listBoxPiers.SelectedItem}»");
         }
 
         private void buttonParkShip_Click(object sender, EventArgs e)
@@ -116,21 +141,38 @@ namespace ShipsApp
         {
             if (listBoxPiers.SelectedIndex == -1)
             {
-                MessageBox.Show("Некуда парковать судно!");
+                MessageBox.Show("Некуда парковать судно!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (ship == null)
             {
-                MessageBox.Show("Нечего парковать на пристань!");
+                MessageBox.Show("Нечего парковать на пристань!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if ((_pierCollection[listBoxPiers.SelectedItem.ToString()]) + ship)
+            try
             {
-                Draw();
+                if ((_pierCollection[listBoxPiers.SelectedItem.ToString()]) + ship)
+                {
+                    Draw();
+
+                    _logger.Info($"Добавлено судно «{ship}»");
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось припарковать судно!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (PierOverflowException ex)
             {
-                MessageBox.Show("Пристань переполнена!");
+                MessageBox.Show(ex.Message, "Пристань переполнена", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                _logger.Warn($"Переполнение: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                _logger.Warn($"Неизвестная ошибка: {ex.Message}");
             }
         }
 
@@ -138,15 +180,20 @@ namespace ShipsApp
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (_pierCollection.SaveData(saveFileDialog.FileName))
+                try
                 {
+                    _pierCollection.SaveData(saveFileDialog.FileName);
                     MessageBox.Show("Сохранение прошло успешно!", "Результат",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    _logger.Info($"Сохранено в файл «{saveFileDialog.FileName}»");
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Произошла ошибка при сохранении!", "Результат",
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Неизвестная ошибка при сохранении: {ex.Message}");
                 }
             }
         }
@@ -155,17 +202,28 @@ namespace ShipsApp
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (_pierCollection.LoadData(openFileDialog.FileName))
+                try
                 {
-                    MessageBox.Show("Информация из файла успешно загружена!", "Результат", MessageBoxButtons.OK,
+                    _pierCollection.LoadData(openFileDialog.FileName);
+                    MessageBox.Show($"Информация из файла «{openFileDialog.FileName}» успешно загружена!", "Результат", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+
                     ReloadLevels();
                     Draw();
+
+                    _logger.Info($"Загружено из файла «{openFileDialog.FileName}»");
                 }
-                else
+                catch (PierOverflowException ex)
                 {
-                    MessageBox.Show("Произошла ошибка при чтении файла!", "Результат", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Занятое место: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузке", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Неизвестная ошибка при загрузке: {ex.Message}");
                 }
             }
         }
