@@ -75,7 +75,7 @@ namespace ShipsApp
                         _logger.Info($"Судно «{ship}» изъято с места {maskedTextBoxPlace.Text}");
                     }
                 }
-                catch (ShipNotFoundException ex)
+                catch (PierNotFoundException ex)
                 {
                     MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

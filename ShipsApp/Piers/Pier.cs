@@ -42,7 +42,7 @@ namespace ShipsApp
         {
             if (index < 0 || index >= p._maxCount)
             {
-                throw new ShipNotFoundException(index);
+                throw new PierNotFoundException(index);
             }
 
             T ship = p._places[index];
