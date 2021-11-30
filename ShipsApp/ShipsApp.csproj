@@ -55,7 +55,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ShipNotFoundException.cs" />
+    <Compile Include="Exceptions\PierNotFoundException.cs" />
     <Compile Include="Exceptions\PierOverflowException.cs" />
     <Compile Include="Forms\FormShipConfig.cs">
       <SubType>Form</SubType>
