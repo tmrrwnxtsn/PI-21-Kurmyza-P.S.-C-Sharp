@@ -2,6 +2,7 @@
 using ShipsApp.Forms;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ShipsApp
@@ -215,11 +216,17 @@ namespace ShipsApp
 
                     _logger.Info($"Информация о пристанях загружена из файла «{openFileDialog.FileName}»");
                 }
-                catch (PierOverflowException ex)
+                catch (FileFormatException ex)
                 {
-                    MessageBox.Show(ex.Message, "Занятое место", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Неверный формат файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    _logger.Warn($"Занятое место: {ex.Message}");
+                    _logger.Warn($"Некорректный формат загружаемого файла: {ex.Message}");
+                }
+                catch (TypeLoadException ex)
+                {
+                    MessageBox.Show(ex.Message, "Неверный тип объекта", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Попытка загрузки на пристань объекта неизвестного типа: {ex.Message}");
                 }
                 catch (Exception ex)
                 {
