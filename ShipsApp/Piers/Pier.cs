@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace ShipsApp
 {
-    public class Pier<T> where T : class, ITransport
+    public class Pier<T> : IEnumerator<T>, IEnumerable<T> where T : class, ITransport
     {
         private readonly List<T> _places;
 
@@ -17,6 +18,12 @@ namespace ShipsApp
 
         private readonly int _placeSizeHeight = 190;
 
+        private int _currIdx;
+
+        public T Current => _places[_currIdx];
+
+        object IEnumerator.Current => _places[_currIdx];
+
         public Pier(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
@@ -25,6 +32,7 @@ namespace ShipsApp
             _pictureWidth = picWidth;
             _pictureHeight = picHeight;
             _places = new List<T>();
+            _currIdx = -1;
         }
 
         public static bool operator +(Pier<T> p, T ship)
@@ -33,7 +41,11 @@ namespace ShipsApp
             {
                 throw new PierOverflowException();
             }
-            
+            if (p._places.Contains(ship))
+            {
+                throw new PierAlreadyHaveException();
+            }
+
             p._places.Add(ship);
             return true;
         }
@@ -49,7 +61,7 @@ namespace ShipsApp
             p._places.RemoveAt(index);
             return ship;
         }
-
+        
         public void Draw(Graphics g)
         {
             DrawMarking(g);
@@ -82,6 +94,33 @@ namespace ShipsApp
                 return null;
             }
             return _places[index];
+        }
+
+        public void Sort() => _places.Sort(new ShipComparer());
+
+        public void Dispose()
+        {
+        }
+
+        public bool MoveNext()
+        {
+            _currIdx++;
+            return (_currIdx < _places.Count);
+        }
+
+        public void Reset()
+        {
+            _currIdx = -1;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
         }
     }
 }

@@ -47,6 +47,7 @@ namespace ShipsApp
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.buttonSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPier)).BeginInit();
             this.groupBoxGetShip.SuspendLayout();
             this.menuStripFile.SuspendLayout();
@@ -62,7 +63,7 @@ namespace ShipsApp
             // 
             // buttonParkShip
             // 
-            this.buttonParkShip.Location = new System.Drawing.Point(1352, 347);
+            this.buttonParkShip.Location = new System.Drawing.Point(1352, 395);
             this.buttonParkShip.Name = "buttonParkShip";
             this.buttonParkShip.Size = new System.Drawing.Size(130, 47);
             this.buttonParkShip.TabIndex = 1;
@@ -75,7 +76,7 @@ namespace ShipsApp
             this.groupBoxGetShip.Controls.Add(this.buttonGetShip);
             this.groupBoxGetShip.Controls.Add(this.maskedTextBoxPlace);
             this.groupBoxGetShip.Controls.Add(this.labelPlace);
-            this.groupBoxGetShip.Location = new System.Drawing.Point(1349, 400);
+            this.groupBoxGetShip.Location = new System.Drawing.Point(1349, 448);
             this.groupBoxGetShip.Name = "groupBoxGetShip";
             this.groupBoxGetShip.Size = new System.Drawing.Size(130, 110);
             this.groupBoxGetShip.TabIndex = 3;
@@ -176,14 +177,14 @@ namespace ShipsApp
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
@@ -195,11 +196,22 @@ namespace ShipsApp
             // 
             this.openFileDialog.Filter = "txt file | *.txt";
             // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(1352, 323);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(127, 46);
+            this.buttonSort.TabIndex = 10;
+            this.buttonSort.Text = "Сортировать";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
             // FormPier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1491, 766);
+            this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonRemovePier);
             this.Controls.Add(this.listBoxPiers);
             this.Controls.Add(this.buttonAddPier);
@@ -242,5 +254,6 @@ namespace ShipsApp
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button buttonSort;
     }
 }

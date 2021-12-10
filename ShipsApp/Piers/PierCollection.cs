@@ -62,21 +62,17 @@ namespace ShipsApp
                 {
                     sw.WriteLine($"Pier{_separator}{level.Key}");
 
-                    ITransport ship;
-                    for (int i = 0; (ship = level.Value.GetShip(i)) != null; i++)
+                    foreach (ITransport ship in level.Value)
                     {
-                        if (ship != null)
+                        if (ship.GetType().Name == "Ship")
                         {
-                            if (ship.GetType().Name == "Ship")
-                            {
-                                sw.Write($"Ship{_separator}");
-                            }
-                            if (ship.GetType().Name == "ContainerShip")
-                            {
-                                sw.Write($"ContainerShip{_separator}");
-                            }
-                            sw.WriteLine(ship);
+                            sw.Write($"Ship{_separator}");
                         }
+                        if (ship.GetType().Name == "ContainerShip")
+                        {
+                            sw.Write($"ContainerShip{_separator}");
+                        }
+                        sw.WriteLine(ship);
                     }
                 }
             }

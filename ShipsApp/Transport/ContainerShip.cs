@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace ShipsApp
 {
-    public class ContainerShip : Ship
+    public class ContainerShip : Ship, IEquatable<ContainerShip>
     {
         public Color AdditionalColor { get; private set; }
 
@@ -99,6 +99,43 @@ namespace ShipsApp
         public override string ToString()
         {
             return $"{base.ToString()}{Separator}{AdditionalColor.Name}{Separator}{Containers}{Separator}{Crane}";
+        }
+
+        public bool Equals(ContainerShip other)
+        {
+            if (!base.Equals(other))
+            {
+                return false;
+            }
+            if (Crane != other.Crane)
+            {
+                return false;
+            }
+            if (Containers != other.Containers)
+            {
+                return false;
+            }
+            if (AdditionalColor != other.AdditionalColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is ContainerShip shipObj))
+            {
+                return false;
+            } 
+            else
+            {
+                return Equals(shipObj);
+            }
         }
     }
 }

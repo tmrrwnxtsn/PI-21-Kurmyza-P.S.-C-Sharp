@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace ShipsApp
 {
-    public class Ship : Vehicle
+    public class Ship : Vehicle, IEquatable<Ship>
     {
         protected readonly int ShipWidth = 230;
 
@@ -159,6 +159,47 @@ namespace ShipsApp
         public override string ToString()
         {
             return $"{MaxSpeed}{Separator}{Weight}{Separator}{MainColor.Name}";
+        }
+
+        public bool Equals(Ship other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Ship shipObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(shipObj);
+            }
         }
     }
 }

@@ -55,6 +55,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\PierAlreadyHaveException.cs" />
     <Compile Include="Exceptions\PierNotFoundException.cs" />
     <Compile Include="Exceptions\PierOverflowException.cs" />
     <Compile Include="Forms\FormShipConfig.cs">
@@ -88,6 +89,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Transport\Ship.cs" />
+    <Compile Include="Transport\ShipComparer.cs" />
     <Compile Include="Transport\Vehicle.cs" />
     <EmbeddedResource Include="Forms\FormPier.resx">
       <DependentUpon>FormPier.cs</DependentUpon>

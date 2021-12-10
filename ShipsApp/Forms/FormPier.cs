@@ -154,7 +154,7 @@ namespace ShipsApp
             }
             try
             {
-                if ((_pierCollection[listBoxPiers.SelectedItem.ToString()]) + ship)
+                if (_pierCollection[listBoxPiers.SelectedItem.ToString()] + ship)
                 {
                     Draw();
 
@@ -170,6 +170,12 @@ namespace ShipsApp
                 MessageBox.Show(ex.Message, "Пристань переполнена", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 _logger.Warn($"Невозможно добавить судно в переполненную пристань: {ex.Message}");
+            }
+            catch (PierAlreadyHaveException ex)
+            {
+                MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                _logger.Warn($"Дублирование: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -216,6 +222,18 @@ namespace ShipsApp
 
                     _logger.Info($"Информация о пристанях загружена из файла «{openFileDialog.FileName}»");
                 }
+                catch (PierOverflowException ex)
+                {
+                    MessageBox.Show(ex.Message, "Пристань переполнена", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Переполнение при загрузке из файла: {ex.Message}");
+                }
+                catch (PierAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дубликат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    _logger.Warn($"Загрузка дубликата: {ex.Message}");
+                }
                 catch (FileFormatException ex)
                 {
                     MessageBox.Show(ex.Message, "Неверный формат файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -234,6 +252,16 @@ namespace ShipsApp
 
                     _logger.Warn($"Неизвестная ошибка при загрузке: {ex.Message}");
                 }
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            if (listBoxPiers.SelectedIndex > -1)
+            {
+                _pierCollection[listBoxPiers.SelectedItem.ToString()].Sort();
+                Draw();
+                _logger.Info("Сортировка уровней");
             }
         }
     }
