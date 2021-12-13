@@ -8,7 +8,7 @@ namespace ShipsApp
         {
             if (x is ContainerShip containerShipX && y is ContainerShip containerShipY)
             {
-                return ComparerContainerShips(containerShipX, containerShipY);
+                return CompareContainerShips(containerShipX, containerShipY);
             }
             if (x is ContainerShip && y is Ship)
             {
@@ -42,7 +42,7 @@ namespace ShipsApp
             return 0;
         }
 
-        private int ComparerContainerShips(ContainerShip x, ContainerShip y)
+        private int CompareContainerShips(ContainerShip x, ContainerShip y)
         {
             var res = CompareShips(x, y);
             if (res != 0)
