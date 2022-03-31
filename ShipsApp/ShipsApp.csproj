@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06F78A88-306B-4700-814C-C678BCA72EB9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ShipsApp</RootNamespace>
+    <AssemblyName>ShipsApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.7.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\PierAlreadyHaveException.cs" />
+    <Compile Include="Exceptions\PierNotFoundException.cs" />
+    <Compile Include="Exceptions\PierOverflowException.cs" />
+    <Compile Include="Forms\FormShipConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormShipConfig.Designer.cs">
+      <DependentUpon>FormShipConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\ContainerShip.cs" />
+    <Compile Include="Transport\Direction.cs" />
+    <Compile Include="Forms\FormPier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPier.Designer.cs">
+      <DependentUpon>FormPier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormShip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormShip.Designer.cs">
+      <DependentUpon>FormShip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\ITransport.cs" />
+    <Compile Include="Piers\Pier.cs" />
+    <Compile Include="Piers\PierCollection.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Ship.cs" />
+    <Compile Include="Transport\ShipComparer.cs" />
+    <Compile Include="Transport\Vehicle.cs" />
+    <EmbeddedResource Include="Forms\FormPier.resx">
+      <DependentUpon>FormPier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormShip.resx">
+      <DependentUpon>FormShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormShipConfig.resx">
+      <DependentUpon>FormShipConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\arrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrowUp.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
